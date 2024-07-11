@@ -9,6 +9,11 @@ body{
 }
 .options{
     position:fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    font-size: 3vw;
     left: 0;
     width: 15vw;
     height: 100%;
@@ -28,12 +33,12 @@ body{
     bottom: 0;
     width: 100%;
     height: 95%;
-    padding: 12px 20px;
+    padding: 5%;
     box-sizing: border-box;
     border: 2px solid #585757;
     border-radius: 4px;
     background-color: #1b1b1b;
-    font-size: 16px;
+    font-size: 1vw;
     resize: none;
 
 }
@@ -41,17 +46,13 @@ body{
     outline: none !important;
     border-color: #8a8a8a;
 }
-#download-form{
-    position:absolute;
-    right: 0;
-}
 .display{
     position: fixed;
     right: 0;
     width: 40vw;
     height: 100%;
 }
-.display embed{
+.display iframe{
     height: 100%;
     width: 100%;
 }
