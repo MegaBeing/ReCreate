@@ -1,9 +1,10 @@
 /*
 TODO:
-    * Section 
     * Heading
     * Table
-    * Code Splitter
+    * Dates
+    * Points
+    * Link
 */
 
 import Section from "./components/wrappers/Section.js"; 
@@ -23,7 +24,8 @@ export default function Convertion(code) {
     let jscode = "";
     let height = 10;
     /* FIXME:
-        
+        Height must not be static but should 
+        be calculated according to the font size
     */
     let curr;
     for (let i = 0; i < sectionList.length; i++) {

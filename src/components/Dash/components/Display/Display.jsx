@@ -1,5 +1,14 @@
 import React, { useEffect, useRef } from 'react';
 import { jsPDF } from 'jspdf';
+
+/**
+ * Description placeholder
+ *
+ * @export
+ * @param {{ value: any; }} param0
+ * @param {*} param0.value
+ * @returns {*}
+ */
 export default function Display({value}) {
     const iframeRef = useRef(null);
     useEffect(() => {
