@@ -1,14 +1,13 @@
 /*
 TODO:
-    * Heading
+    * Link
     * Table
     * Dates
     * Points
-    * Link
 */
 
 import Section from "./components/wrappers/Section.js";
-import SplitIntoSections from "./helper/SplitIntoSections/SplitIntoSections.js";
+import SplitIntoSections from "./helper/AlgorithmHelpers/SplitIntoSections.js";
 
 /**
  * Description placeholder
@@ -22,14 +21,16 @@ export default function Convertion(code,fontSize) {
 
     let sectionList = SplitIntoSections(code, '#');
     let jscode = `doc.setFontSize(${fontSize})`;
-    let height = fontSize * 0.5;
+    console.log(sectionList)
+    let height = 10;
     let curr;
     try {
         for (let i = 0; i < sectionList.length; i++) {
-            console.log(sectionList[i])
-            curr = Section(sectionList[i], height);
-            height = height + (fontSize * 0.5);
-            jscode = jscode + '\n' + curr;
+            // console.log(sectionList[i])
+            curr = Section(sectionList[i], height,fontSize);
+            // console.log(curr)
+            height = curr.height + (fontSize * 0.8);
+            jscode = jscode + '\n' + curr.jscode;
         }
         return jscode;
     }

@@ -1,3 +1,4 @@
+import ContentEvaluation from "../../helper/WrapperHelpers/WrapperContentEvaluation";
 
 /**
  * Description placeholder
@@ -7,7 +8,7 @@
  * @param {number} height
  * @returns {string}
  */
-export default function Section(SectionObject, height) {
+export default function Section(SectionObject, height,fontSize) {
     // console.log(SectionObject)
     let arg = SectionObject.arg;
     let content = SectionObject.content;
@@ -17,11 +18,11 @@ export default function Section(SectionObject, height) {
             * arguments evaluation
             * arguments implement on jscode
         */
-        let jscode = `doc.text('${content}',5,${height})`
-        // console.log(jscode)
-        return jscode
+        let evaluatedContent = ContentEvaluation(content,height,fontSize);
+        console.log(evaluatedContent)
+        return evaluatedContent
     }
-    if (arg.type == 'tabular') {
+    else if (arg.type == 'tabular') {
         /*TODO: 
             * create Tabular section 
             * width Factor

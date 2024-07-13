@@ -14,6 +14,7 @@ export default function Dash() {
 This is my 1 section 
 #/s
 #s [ type : normal ]
+> Heading 2
 This is my 2 section
 #/s`;
   const [code, setcode] = useState(Default);
