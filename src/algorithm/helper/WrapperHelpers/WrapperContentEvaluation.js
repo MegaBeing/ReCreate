@@ -10,13 +10,14 @@ export default function ContentEvaluation(content,height,fontSize){
             //Heading
             let headingCode = Heading(contentLines[i],height,fontSize);
             jscode = jscode + '\n' + headingCode;
-            height = height + (fontSize * 0.5);
+            height = height + (fontSize * 0.7);
         }
         else
         {
-            let contentCode = `doc.setFontSize(${fontSize});
+            let contentCode = `doc.setFontSize(${fontSize}).setFont(undefined,'normal');
             doc.text('${contentLines[i]}',18,${height});`;
             jscode = jscode + '\n' + contentCode;
+            height = height + (fontSize * 0.4);
         }
     }
     return {

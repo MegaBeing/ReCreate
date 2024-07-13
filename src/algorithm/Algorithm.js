@@ -29,7 +29,7 @@ export default function Convertion(code,fontSize) {
             // console.log(sectionList[i])
             curr = Section(sectionList[i], height,fontSize);
             // console.log(curr)
-            height = curr.height + (fontSize * 0.8);
+            height = curr.height + (fontSize * 0.2);
             jscode = jscode + '\n' + curr.jscode;
         }
         return jscode;

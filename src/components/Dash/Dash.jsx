@@ -11,11 +11,12 @@ import Convertion from '../../algorithm/Algorithm.js'
  */
 export default function Dash() {
   let Default = `#s [ type : normal ]
-This is my 1 section 
+> Heading 1
+This is my 1st section 
 #/s
 #s [ type : normal ]
 > Heading 2
-This is my 2 section
+This is my 2nd section
 #/s`;
   const [code, setcode] = useState(Default);
   const [fontSize, setFontSize] = useState(16);
