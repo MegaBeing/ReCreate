@@ -8,14 +8,19 @@
  * @param {*} param0.onChange
  * @returns {*}
  */
-export default function Code({value, onChange}) {
+
+import NumberInput from "./components/NumberInput";
+export default function Code({ value, onChange , fontSize , setFontSize}) {
     return (
-        <div className="code">
-            <textarea id='code-area'
-                value={value}
-                onChange={(e) => onChange(e.target.value)}
-            >
-            </textarea >
-        </div>
+        <>
+            <div className="code">
+            <NumberInput fontSize={fontSize} setFontSize={setFontSize}/>
+                <textarea id='code-area'
+                    value={value}
+                    onChange={(e) => onChange(e.target.value)}
+                >
+                </textarea >
+            </div>
+        </>
     )
 }

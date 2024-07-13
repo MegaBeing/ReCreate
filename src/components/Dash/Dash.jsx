@@ -17,11 +17,12 @@ This is my 1 section
 This is my 2 section
 #/s`;
   const [code, setcode] = useState(Default);
+  const [fontSize, setFontSize] = useState(16);
     // console.log(code)
   return (
     <>
-      <Code value={code} onChange={setcode} />
-      <Display value={Convertion(code)} />
+      <Code value={code} onChange={setcode} fontSize={fontSize} setFontSize={setFontSize}/>
+      <Display value={Convertion(code,fontSize)} />
     </>
   );
 } 

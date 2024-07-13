@@ -7,31 +7,34 @@ TODO:
     * Link
 */
 
-import Section from "./components/wrappers/Section.js"; 
+import Section from "./components/wrappers/Section.js";
 import SplitIntoSections from "./helper/SplitIntoSections/SplitIntoSections.js";
 
 /**
- * Function Convertion
+ * Description placeholder
  *
  * @export
- * @param {*} code ReCreate Code
- * @returns {string} JavaScript code
+ * @param {string} code
+ * @param {number} fontSize
+ * @returns {string}
  */
+export default function Convertion(code,fontSize) {
 
-export default function Convertion(code) {
-    let sectionList = SplitIntoSections(code,'#');
-    // console.log(sectionList[0])
-    let jscode = "";
-    let height = 10;
-    /* FIXME:
-        Height must not be static but should 
-        be calculated according to the font size
-    */
+    let sectionList = SplitIntoSections(code, '#');
+    let jscode = `doc.setFontSize(${fontSize})`;
+    let height = fontSize * 0.5;
     let curr;
-    for (let i = 0; i < sectionList.length; i++) {
-        curr = Section(sectionList[i],height);
-        height = height+10;
-        jscode = jscode + '\n' + curr;
+    try {
+        for (let i = 0; i < sectionList.length; i++) {
+            console.log(sectionList[i])
+            curr = Section(sectionList[i], height);
+            height = height + (fontSize * 0.5);
+            jscode = jscode + '\n' + curr;
+        }
+        return jscode;
     }
-    return jscode;
+    catch(err){
+        console.log('Problem in Rendering User Code Not Appropriate')
+        return "";
+    }
 }

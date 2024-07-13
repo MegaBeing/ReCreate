@@ -9,11 +9,27 @@
  * @param {string} [delimiter='#']
  * @returns {{ singleObject: { arg: {}; content: string; }; index: any; }}
  */
+/* FIXME:
+    * SECTION WITHOUT ARGUMENTS
+*/
 export default function CreateSingleObject(code, index, n, delimiter = '#') {
     var singleObject = {};
     let collect = false;
     let content = '';
     let i = index;
+    let arg = true;
+    for(let g = 0;g<n;g++)
+    {
+        if(code[i] == '[')
+        {
+            arg = true;
+            break;
+        }
+        else{
+            arg = false;
+            collect = true;
+        }
+    }
     // console.log('inside CreateSingleObject')
     while (i < n && code[i] != delimiter) {
         if (code[i] == '[') {
@@ -29,6 +45,9 @@ export default function CreateSingleObject(code, index, n, delimiter = '#') {
             content = content + code[i];
         }
         i++;
+    }
+    if(!arg){
+        singleObject['arg'] = false;
     }
     singleObject['content'] = content.trim();
     // console.log({
