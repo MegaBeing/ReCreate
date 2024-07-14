@@ -17,7 +17,14 @@ This is my 1st section
 #s [ type : normal ]
 > Heading 2
 This is my 2nd section
-#/s`;
+* Point 1
+* Point 2
+#/s
+#s 
+> Heading 3 
+This is my 3rd Section
+#/s
+`;
   const [code, setcode] = useState(Default);
   const [fontSize, setFontSize] = useState(16);
     // console.log(code)
