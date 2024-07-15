@@ -30,7 +30,7 @@ export default function ContentEvaluation(content,height,fontSize){
                 LPoint = !LPoint
             }
             let contentCode = `doc.setFontSize(${fontSize}).setFont(undefined,'normal');
-            doc.text('${contentLines[i]}',18,${height});`;
+            doc.text('${contentLines[i]}',18,${height},{maxWidth:175});`;
             jscode = jscode + '\n' + contentCode;
             height = height + (fontSize * 0.4);
         }
