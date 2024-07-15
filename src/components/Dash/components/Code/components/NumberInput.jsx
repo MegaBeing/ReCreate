@@ -4,7 +4,7 @@ export default function NumberInput({ fontSize, setFontSize }) {
     return (
         <div className="number-input">
             <button onClick={() => setFontSize(fontSize - 1)}>-</button>
-            <input type="text" name="size" id="size" Value={fontSize} readOnly/>
+            <input type="text" name="size" id="size" value={fontSize} readOnly/>
             <button onClick={() => setFontSize(fontSize + 1)}>+</button>
         </div>
     )

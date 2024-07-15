@@ -6,6 +6,6 @@ export default function Points(code, height, fontSize) {
     }
     let jscode = `doc.setFontSize(${fontSize * 0.8}).setFont(undefined,'normal')
     doc.circle(23, ${height-(fontSize * 0.08)},1,'F');
-    doc.text('${content.trim()}',26,${height})`;
+    doc.text('${content.trim()}',26,${height},{maxWidth:160})`;
     return jscode;
 }

@@ -10,18 +10,21 @@ import Convertion from '../../algorithm/Algorithm.js'
  * @returns {*}
  */
 export default function Dash() {
-  let Default = `#s [ type : normal ]
+  let Default = `#s { type : normal }
 > Heading 1
 This is my 1st section 
 #/s
-#s [ type : normal ]
+
+#s { type : normal }
 > Heading 2
 This is my 2nd section
 * Point 1
 * Point 2
 #/s
+
 #s 
 > Heading 3 
+[link](https://www.google.com/)
 This is my 3rd Section
 #/s
 `;

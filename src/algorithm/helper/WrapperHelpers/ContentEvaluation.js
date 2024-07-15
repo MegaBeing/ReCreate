@@ -1,4 +1,5 @@
 import Heading from "../../components/text/Heading";
+import Link from "../../components/text/Link";
 import Points from "../../components/text/Points";
 
 export default function ContentEvaluation(content,height,fontSize){
@@ -21,6 +22,15 @@ export default function ContentEvaluation(content,height,fontSize){
             jscode = jscode + '\n' + pointCode;
             height = height + (fontSize * 0.35);
             LPoint = true;
+        }
+        else if(contentLines[i][0] == '[')
+        {
+            // Links
+            console.log('goes in')
+            let LinkCode = Link(contentLines[i],height,fontSize)
+            console.log(LinkCode)
+            jscode = jscode + '\n' + LinkCode;
+            height = height + (fontSize * 0.5);
         }
         else
         {

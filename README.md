@@ -22,7 +22,7 @@ Follow these steps to install and set up the project:
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/yourusername/recreate.git
+    git clone https://github.com/megabeing/ReCreate.git
     cd recreate
     ```
 

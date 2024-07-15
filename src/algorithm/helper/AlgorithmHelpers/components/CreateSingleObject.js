@@ -32,7 +32,7 @@ export default function CreateSingleObject(code, index, n, delimiter = '#') {
     }
     // console.log('inside CreateSingleObject')
     while (i < n && code[i] != delimiter) {
-        if (code[i] == '[') {
+        if (code[i] == '{') {
             // console.log('inside 1')
             let value = getArguments(code, i, n);
             singleObject['arg'] = value.arg;
@@ -73,7 +73,7 @@ function getArguments(code, index, n) {
     let c = index + 1;
     let argName;
     let argVal;
-    while (c < n && code[c] != ']') {
+    while (c < n && code[c] != '}') {
         argName = '';
         argVal = '';
         //argName
@@ -83,7 +83,7 @@ function getArguments(code, index, n) {
         }
         c++;
         //argValue
-        while (c < n && !(code[c] == ']' || code[c] == ',')) {
+        while (c < n && !(code[c] == '}' || code[c] == ',')) {
             argVal = argVal + code[c];
             c++;
         }

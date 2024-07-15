@@ -1,9 +1,7 @@
 /*
 TODO:
-    * Link
     * Table
     * Dates
-    * Points
 */
 
 import Section from "./components/wrappers/Section.js";
@@ -21,21 +19,29 @@ export default function Convertion(code,fontSize) {
 
     let sectionList = SplitIntoSections(code, '#');
     let jscode = `doc.setFontSize(${fontSize})`;
-    console.log(sectionList)
+    // console.log(sectionList)
     let height = 10;
     let curr;
-    try {
-        for (let i = 0; i < sectionList.length; i++) {
-            // console.log(sectionList[i])
-            curr = Section(sectionList[i], height,fontSize);
-            // console.log(curr)
-            height = curr.height + (fontSize * 0.2);
-            jscode = jscode + '\n' + curr.jscode;
-        }
-        return jscode;
+    for (let i = 0; i < sectionList.length; i++) {
+        // console.log(sectionList[i])
+        curr = Section(sectionList[i], height,fontSize);
+        // console.log(curr)
+        height = curr.height + (fontSize * 0.2);
+        jscode = jscode + '\n' + curr.jscode;
     }
-    catch(err){
-        console.log('Problem in Rendering User Code Not Appropriate')
-        return "";
-    }
+    return jscode;
+    // try {
+    //     for (let i = 0; i < sectionList.length; i++) {
+    //         // console.log(sectionList[i])
+    //         curr = Section(sectionList[i], height,fontSize);
+    //         // console.log(curr)
+    //         height = curr.height + (fontSize * 0.2);
+    //         jscode = jscode + '\n' + curr.jscode;
+    //     }
+    //     return jscode;
+    // }
+    // catch(err){
+    //     console.log('Problem in Rendering User Code Not Appropriate')
+    //     return "";
+    // }
 }

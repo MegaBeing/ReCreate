@@ -1,4 +1,4 @@
-import ContentEvaluation from "../../helper/WrapperHelpers/WrapperContentEvaluation";
+import ContentEvaluation from "../../helper/WrapperHelpers/ContentEvaluation";
 
 /**
  * Description placeholder
@@ -13,13 +13,8 @@ export default function Section(SectionObject, height,fontSize) {
     let arg = SectionObject.arg;
     let content = SectionObject.content;
     if (arg == false || arg.type == 'normal') {
-        /*TODO:
-            * arguments helper
-            * arguments evaluation
-            * arguments implement on jscode
-        */
         let evaluatedContent = ContentEvaluation(content,height,fontSize);
-        console.log(evaluatedContent)
+        // console.log(evaluatedContent)
         return evaluatedContent
     }
     else if (arg.type == 'tabular') {
