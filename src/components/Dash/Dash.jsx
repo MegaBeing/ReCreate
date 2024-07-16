@@ -30,11 +30,12 @@ This is my 3rd Section
 `;
   const [code, setcode] = useState(Default);
   const [fontSize, setFontSize] = useState(16);
+  const [curPos, setCurPos] = useState(0);
     // console.log(code)
   return (
     <>
-      <Options codeState={code} onClick = {setcode} />
-      <Code value={code} onChange={setcode} fontSize={fontSize} setFontSize={setFontSize} />
+      <Options curPos = {curPos} codeState={code} onClick = {setcode} />
+      <Code value={code} setCurPos={setCurPos} onChange={setcode} fontSize={fontSize} setFontSize={setFontSize} />
       <Display value={Convertion(code,fontSize)} />
     </>
   );

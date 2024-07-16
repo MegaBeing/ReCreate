@@ -1,6 +1,7 @@
+import { CircularProgress } from '@mui/material';
 import Button from '@mui/material/Button';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-export default function SingleOption({ title, codeState, onClick, syntax }) {
+export default function SingleOption({ title, codeState, onClick, syntax, curPos }) {
     const theme = createTheme({
         palette: {
             ochre: {
@@ -13,7 +14,11 @@ export default function SingleOption({ title, codeState, onClick, syntax }) {
     });
     return (
         <ThemeProvider theme={theme}>
-            <Button onClick={() => onClick(codeState + '\n' + syntax)} variant="contained" color='ochre'>{title}</Button>
+            <Button onClick={() => {
+                let bef = codeState.substr(0,curPos)
+                let af = codeState.substr(curPos)
+                onClick(bef + syntax + af)
+            }} variant="contained" color='ochre'>{title}</Button>
         </ThemeProvider>
     )
 }

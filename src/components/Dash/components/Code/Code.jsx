@@ -9,15 +9,28 @@
  * @returns {*}
  */
 
+import { useRef } from "react";
 import NumberInput from "./components/NumberInput";
-export default function Code({ value, onChange , fontSize , setFontSize}) {
+export default function Code({ value, onChange, fontSize, setFontSize, setCurPos }) {
+    const textAreaRef = useRef();
+    const handleSelect = () => {
+        if (textAreaRef.current) {
+            const cursorPos = textAreaRef.current.selectionStart;
+            setCurPos(cursorPos);
+        }
+    };
     return (
         <>
             <div className="code">
-            <NumberInput fontSize={fontSize} setFontSize={setFontSize}/>
-                <textarea id='code-area'
+                <NumberInput fontSize={fontSize} setFontSize={setFontSize} />
+                <textarea
+                    ref={textAreaRef}
+                    id='code-area'
                     value={value}
-                    onChange={(e) => onChange(e.target.value)}
+                    onChange={(e) => {
+                        handleSelect()
+                        onChange(e.target.value)
+                    }}
                     spellCheck={false}
                 >
                 </textarea >
