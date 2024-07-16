@@ -1,4 +1,3 @@
-import { CircularProgress } from '@mui/material';
 import Button from '@mui/material/Button';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 export default function SingleOption({ title, codeState, onClick, syntax, curPos }) {
