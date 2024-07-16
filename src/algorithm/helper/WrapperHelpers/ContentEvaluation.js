@@ -26,9 +26,9 @@ export default function ContentEvaluation(content,height,fontSize){
         else if(contentLines[i][0] == '[')
         {
             // Links
-            console.log('goes in')
+            // console.log('goes in')
             let LinkCode = Link(contentLines[i],height,fontSize)
-            console.log(LinkCode)
+            // console.log(LinkCode)
             jscode = jscode + '\n' + LinkCode;
             height = height + (fontSize * 0.5);
         }

@@ -18,6 +18,7 @@ export default function Code({ value, onChange , fontSize , setFontSize}) {
                 <textarea id='code-area'
                     value={value}
                     onChange={(e) => onChange(e.target.value)}
+                    spellCheck={false}
                 >
                 </textarea >
             </div>

@@ -1,10 +1,14 @@
-import Options from "./components/Options/Options.jsx"
+import Heading from "./algorithm/components/text/Heading.js";
 import Dash from "./components/Dash/Dash.jsx";
+import logo from '/logo.svg'
 function App() {
   return (
     <>
-        <Options/>
-        <Dash/>
+      <div className="logo">
+        <img src={logo} />
+        <h1>ReCreate</h1>
+      </div>
+      <Dash />
     </>
   );
 }

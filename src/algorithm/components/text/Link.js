@@ -34,10 +34,10 @@ function TextAndUrl(code) {
         }
         i++;
     }
-    console.log({
-        'text': text,
-        'url': url,
-    })
+    // console.log({
+    //     'text': text,
+    //     'url': url,
+    // })
     return {
         'text': text,
         'url': url,

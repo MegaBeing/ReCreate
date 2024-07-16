@@ -2,7 +2,7 @@ import { useState } from "react";
 import Code from "./components/Code/Code.jsx"
 import Display from "./components/Display/Display.jsx"
 import Convertion from '../../algorithm/Algorithm.js'
-
+import Options from "../Options/Options.jsx";
 /**
  * Description placeholder
  *
@@ -33,7 +33,8 @@ This is my 3rd Section
     // console.log(code)
   return (
     <>
-      <Code value={code} onChange={setcode} fontSize={fontSize} setFontSize={setFontSize}/>
+      <Options codeState={code} onClick = {setcode} />
+      <Code value={code} onChange={setcode} fontSize={fontSize} setFontSize={setFontSize} />
       <Display value={Convertion(code,fontSize)} />
     </>
   );
