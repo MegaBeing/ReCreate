@@ -1,4 +1,4 @@
-import Heading from "./algorithm/components/text/Heading.js";
+import Heading from "./algorithm/components/textComponents/Heading.js";
 import Dash from "./components/Dash/Dash.jsx";
 import logo from '/logo.svg'
 function App() {

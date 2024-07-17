@@ -1,6 +1,6 @@
-import Heading from "../../components/text/Heading";
-import Link from "../../components/text/Link";
-import Points from "../../components/text/Points";
+import Heading from "../../../textComponents/Heading";
+import Link from "../../../textComponents/Link";
+import Points from "../../../textComponents/Points";
 
 export default function ContentEvaluation(content,height,fontSize){
     let contentLines = content.split('\n')

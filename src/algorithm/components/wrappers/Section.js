@@ -1,4 +1,4 @@
-import ContentEvaluation from "../../helper/WrapperHelpers/ContentEvaluation";
+import ContentEvaluation from "./helpers/Section/ContentEvaluation";
 
 /**
  * Description placeholder
