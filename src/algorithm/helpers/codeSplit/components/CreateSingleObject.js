@@ -9,9 +9,8 @@
  * @param {string} [delimiter='#']
  * @returns {{ singleObject: { arg: {}; content: string; }; index: any; }}
  */
-/* FIXME:
-    * SECTION WITHOUT ARGUMENTS
-*/
+
+
 export default function CreateSingleObject(code, index, n, delimiter = '#') {
     var singleObject = {};
     let collect = false;

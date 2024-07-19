@@ -11,6 +11,7 @@
 
 import { useRef } from "react";
 import NumberInput from "./components/NumberInput";
+import Highlighter from "./components/Highlight";
 export default function Code({ value, onChange, fontSize, setFontSize, setCurPos }) {
     const textAreaRef = useRef();
     const handleSelect = () => {
@@ -20,21 +21,20 @@ export default function Code({ value, onChange, fontSize, setFontSize, setCurPos
         }
     };
     return (
-        <>
-            <div className="code">
-                <NumberInput fontSize={fontSize} setFontSize={setFontSize} />
-                <textarea
-                    ref={textAreaRef}
-                    id='code-area'
-                    value={value}
-                    onChange={(e) => {
-                        handleSelect()
-                        onChange(e.target.value)
-                    }}
-                    spellCheck={false}
-                >
-                </textarea >
-            </div>
-        </>
+        <div className="code">
+            <NumberInput fontSize={fontSize} setFontSize={setFontSize} />
+            <textarea
+                ref={textAreaRef}
+                id='code-area'
+                value={value}
+                onSelect={() => handleSelect()}
+                onChange={(e) => {
+                    onChange(e.target.value)
+                }}
+                spellCheck={false}
+            >
+            </textarea >
+            <Highlighter Code={value}/>
+        </div>
     )
 }

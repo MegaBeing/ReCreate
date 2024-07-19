@@ -6,7 +6,6 @@ import { optionsData } from "./Data/OptionData";
 export default function Options({ codeState, onClick, curPos }) {
     return (
         <div className="options">
-            <h1>Snippets</h1>
             you can code snippets from here
             <div className="single-option-list">
                 {optionsData.map((ele) => <SingleOption

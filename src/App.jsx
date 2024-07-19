@@ -6,7 +6,6 @@ function App() {
     <>
       <div className="logo">
         <img src={logo} />
-        <h1>ReCreate</h1>
       </div>
       <Dash />
     </>
