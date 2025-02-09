@@ -1,14 +1,9 @@
-import Heading from "./algorithm/components/textComponents/Heading.js";
-import Dash from "./components/Dash/Dash.jsx";
-import logo from '/logo.svg'
+import Code from "./Components/Code/Code";
 function App() {
   return (
-    <>
-      <div className="logo">
-        <img src={logo} />
-      </div>
-      <Dash />
-    </>
+    <div className="w-screen h-screen flex flex-row">
+      <Code/>
+    </div>
   );
 }
 
