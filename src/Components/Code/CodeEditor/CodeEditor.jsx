@@ -12,7 +12,7 @@ export default function CodeEditor(){
             theme="myCustomTheme"
             beforeMount={(monaco) => defineTheme(monaco)}
             options={{
-                fontSize: 25
+                fontSize: 18
             }}
             />
         </div>
