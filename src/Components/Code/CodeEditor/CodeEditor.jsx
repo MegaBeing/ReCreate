@@ -5,7 +5,7 @@ import Loader from "../../../Loader/Loader";
 import Select from "react-select";
 import { useRef, useState } from "react";
 import { sizeOptions,stripStyle } from "./const";
-export default function CodeEditor({ codeState, setCodeState }) {
+export default function CodeEditor({ sectionsObj, activeSection, inputState, setInputState, setOutputState}) {
     const editorRef = useRef(null)
     const timeoutRef = useRef(null);
     const [fontSize, setFontSize] = useState(10)
@@ -24,18 +24,20 @@ export default function CodeEditor({ codeState, setCodeState }) {
 
             if (response.ok) {
                 const data = await response.json()
-                console.log(data.content)
-                setCodeState(data)
+                setOutputState(prev => ({...prev, [activeSection]: [...data.content]}))
             }
         }
         catch (error) {
-            setCodeState(value)
             console.log(error);
         }
     }
     const onMonacoChange = (value, event) => {
         clearTimeout(timeoutRef.current);
         timeoutRef.current = setTimeout(() => {
+            setInputState((prev) => ({
+                ...prev, 
+                [activeSection]: { title: sectionsObj[activeSection], code: value }
+        }));
             compile(value)
         }, 250);
     };
@@ -58,7 +60,7 @@ export default function CodeEditor({ codeState, setCodeState }) {
                 defaultLanguage="markdown"
                 theme="myCustomTheme"
                 loading={<Loader />}
-                defaultValue={codeState}
+                defaultValue={inputState[activeSection]?.code || ""}
                 beforeMount={(monaco) => defineTheme(monaco)}
                 options={{
                     fontSize: 18,

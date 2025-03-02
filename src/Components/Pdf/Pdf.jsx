@@ -4,22 +4,24 @@ import pdfFonts from "pdfmake/build/vfs_fonts";
 import styles from "./Pdf.module.less"; // Make sure this file exists
 import Loader from "../../Loader/Loader";
 
-export default function Pdf({ codeState }) {
+export default function Pdf({ outputState }) {
   const [pdfUrl, setPdfUrl] = useState("");
   const [docDefinition, setDocDefinition] = useState({})
   useEffect(() => {
-    setDocDefinition({
-      ...codeState
+    const pdfMakeObj = {
+      content: []
+    };
+    Object.values(outputState).forEach((ele) => {
+      pdfMakeObj.content.push(ele)
     })
-  }, [codeState])
+    setDocDefinition(pdfMakeObj)
+  }, [outputState])
   useEffect(() => {
     const pdfDocGenerator = pdfMake.createPdf(docDefinition);
     pdfDocGenerator.getBlob((blob) => {
       const url = URL.createObjectURL(blob);
       setPdfUrl(url);
     });
-
-    // Cleanup blob URL when component unmounts
     return () => URL.revokeObjectURL(pdfUrl);
   }, [docDefinition]);
 

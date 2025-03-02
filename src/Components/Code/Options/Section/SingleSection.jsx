@@ -1,7 +1,6 @@
 import styles from "./Section.module.less"
 import DragIcon from '/section-drag.png'
-export default function SingleSection(){
-    const title = "Section"
+export default function SingleSection({title, isActive, setActiveSection}) {
     return (
         <div className={styles.single_section_container}>
             <div className={styles.overlay}></div>
