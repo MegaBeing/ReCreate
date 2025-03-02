@@ -4,16 +4,14 @@ import pdfFonts from "pdfmake/build/vfs_fonts";
 import styles from "./Pdf.module.less"; // Make sure this file exists
 import Loader from "../../Loader/Loader";
 
-export default function Pdf({codeState}) {
+export default function Pdf({ codeState }) {
   const [pdfUrl, setPdfUrl] = useState("");
-    const [docDefinition, setDocDefinition] = useState({})
-    useEffect(() => {
-        setDocDefinition({
-            content: [
-                codeState
-              ],
-        })
-    },[codeState])
+  const [docDefinition, setDocDefinition] = useState({})
+  useEffect(() => {
+    setDocDefinition({
+      ...codeState
+    })
+  }, [codeState])
   useEffect(() => {
     const pdfDocGenerator = pdfMake.createPdf(docDefinition);
     pdfDocGenerator.getBlob((blob) => {
@@ -31,7 +29,7 @@ export default function Pdf({codeState}) {
         <iframe src={pdfUrl} width="100%" height="100%"></iframe>
       ) : (
         <div className="w-full h-full flex justify-center items-center">
-        <Loader/>
+          <Loader />
         </div>
       )}
     </div>
