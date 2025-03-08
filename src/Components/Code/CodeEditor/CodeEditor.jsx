@@ -5,13 +5,13 @@ import Loader from "../../../Loader/Loader";
 import Select from "react-select";
 import { useRef, useState } from "react";
 import { sizeOptions,stripStyle } from "./const";
-export default function CodeEditor({ sectionsObj, activeSection, inputState, setInputState, setOutputState}) {
-    const editorRef = useRef(null)
+export default function CodeEditor({ activeSection, inputState, setInputState, setOutputState}) {
     const timeoutRef = useRef(null);
     const [fontSize, setFontSize] = useState(10)
+    const API_URL = import.meta.env.VITE_API_URL
     const compile = async (value) => {
         try {
-            const response = await fetch('http://localhost:3000/compile/', {
+            const response = await fetch(`${API_URL}/compile/`, {
                 method: 'POST',
                 body: JSON.stringify({
                     string: value,
@@ -36,7 +36,7 @@ export default function CodeEditor({ sectionsObj, activeSection, inputState, set
         timeoutRef.current = setTimeout(() => {
             setInputState((prev) => ({
                 ...prev, 
-                [activeSection]: { title: sectionsObj[activeSection], code: value }
+                [activeSection]: { title: inputState[activeSection].title, code: value }
         }));
             compile(value)
         }, 250);
@@ -60,7 +60,7 @@ export default function CodeEditor({ sectionsObj, activeSection, inputState, set
                 defaultLanguage="markdown"
                 theme="myCustomTheme"
                 loading={<Loader />}
-                defaultValue={inputState[activeSection]?.code || ""}
+                value={inputState[activeSection]?.code || ""}
                 beforeMount={(monaco) => defineTheme(monaco)}
                 options={{
                     fontSize: 18,

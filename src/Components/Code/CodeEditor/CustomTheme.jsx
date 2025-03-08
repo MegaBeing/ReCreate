@@ -17,7 +17,7 @@ export const defineTheme = () => {
         "editor.background": "#495057",
         "editor.foreground": "#FFFFFF",
         "editor.lineHighlightBackground": "#48596e",
-        "editor.selectionBackground": "#264F78",
+        "editor.selectionBackground": "#264f78",
         "editorCursor.foreground": "#FFFFFF",
         "editorGutter.background": "#343A40",
       },

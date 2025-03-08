@@ -1,16 +1,21 @@
 import styles from './Section.module.less'
 import SingleSection from './SingleSection'
-export default function Section({sectionsObj, setActiveSection, activeSection}) {
+export default function Section({ stream, inputState, setActiveSection, activeSection, addElement, deleteElement}) {
     return (
         <div className={styles.container}>
             <div className={styles.sub_container}>
-                {Object.keys(sectionsObj).map((ele) => {
+                {stream.map((ele, index) => {
                     return <SingleSection
-                    title={sectionsObj[ele]}
-                    key={ele}
-                    isActive={activeSection == ele}
-                    setActiveSection={setActiveSection}
-                />}
+                        title={inputState[ele].title}
+                        key={ele}
+                        objKey={ele}
+                        index={index}
+                        isActive={activeSection == ele}
+                        setActiveSection={setActiveSection}
+                        addElement={addElement}
+                        deleteElement={deleteElement}
+                    />
+                }
                 )}
             </div>
         </div>

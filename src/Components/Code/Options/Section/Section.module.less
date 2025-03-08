@@ -1,8 +1,8 @@
 .container {
     @apply pr-5;
     width: 100%;
-    min-width: 50px;
-    max-height: 190px;
+    min-height: 200px;
+    max-height: 250px;
     overflow-y: auto;
 
     .sub_container {
@@ -17,31 +17,60 @@
     height: 50px;
     background-color: #343A40;
     color: white;
-    margin: 5px;
-    .overlay{
-        @apply bg-red-800 rounded-xl ;
-        opacity: 0.3;
-        position: absolute;
-        width:100%;
-        top: 0;
-        left: 0;
-        height: 50px;
-        display: none;
+    cursor: pointer;
+    transition: all 100ms ease-in-out;
+    margin-left: 2px;
+
+    &.active {
+        // @apply rounded-2xl;
+        outline: 2px #4592de solid;
     }
+
     h2 {
         @apply text-xl;
     }
-    button{
-        @apply mr-3 text-2xl text-red-700;
-        display: none;
-    }
-    &:hover{
-        border: 1px solid red;
-        button{
-            display: block;
+
+    button {
+        @apply mr-3 text-2xl text-red-500;
+        opacity: 0;
+        user-select: none;
+        transition: all 100ms ease-in-out;
+
+        &:active {
+            transform: scale(0.9);
         }
-        .overlay{
-            display: block;
+
+        &:hover {
+            opacity: 1;
         }
     }
+}
+
+.addButtonContainer {
+    @apply mx-auto;
+    width: 50%;
+    text-align: center;
+    transition: all 150ms ease-in-out;
+    user-select: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 7px;
+
+    div{
+        opacity: 0;
+        transition: all 150ms ease-in-out;
+        &:active{
+            transform: scale(0.9);
+        }
+    }
+
+    &:hover {
+        max-height: 20px;
+        div {
+            opacity: 1;
+        }
+    }
+
 }

@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from "react";
 import pdfMake from "pdfmake/build/pdfmake";
 import pdfFonts from "pdfmake/build/vfs_fonts";
-import styles from "./Pdf.module.less"; // Make sure this file exists
+import styles from "./Pdf.module.less";
 import Loader from "../../Loader/Loader";
 
-export default function Pdf({ outputState }) {
+export default function Pdf({ stream, outputState }) {
   const [pdfUrl, setPdfUrl] = useState("");
   const [docDefinition, setDocDefinition] = useState({})
   useEffect(() => {
     const pdfMakeObj = {
       content: []
     };
-    Object.values(outputState).forEach((ele) => {
-      pdfMakeObj.content.push(ele)
+    stream.forEach((ele) => {
+      pdfMakeObj.content.push(outputState[ele])
     })
     setDocDefinition(pdfMakeObj)
   }, [outputState])
