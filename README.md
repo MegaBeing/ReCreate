@@ -1,4 +1,4 @@
-# ReCreate [LIVE](https://megabeing.github.io/ReCreate)
+# ReCreate [LIVE](https://re-create-khaki.vercel.app/)
 ![recreate-features](https://github.com/user-attachments/assets/55e945d9-8fd3-415c-b8eb-c342ba27d40c)
 
 ## Introduction

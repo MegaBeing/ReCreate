@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import pdfMake from "pdfmake/build/pdfmake";
+import pdfMake from "pdfmake/build/pdfmake.min";
 import pdfFonts from "pdfmake/build/vfs_fonts";
 import styles from "./Pdf.module.less";
 import Loader from "../../Loader/Loader";
