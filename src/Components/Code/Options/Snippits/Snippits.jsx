@@ -6,7 +6,7 @@ export default function Snippits({ addElement }) {
     const [filteredSnippits, setFilteredSnippits] = useState(snippitData);
     const filterSnippit = (search) => {
         if (search) {
-            const filtered = filteredSnippits.filter((ele) => {
+            const filtered = snippitData.filter((ele) => {
                 const low = ele.title.toLowerCase()
                 return low.includes(search.toLowerCase())
             })
