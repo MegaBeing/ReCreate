@@ -7,6 +7,20 @@
     }
 }
 
+.search {
+    @apply rounded-full px-5 py-3 w-full transition-all duration-200;
+    background-color: #DEE2E6;
+
+    &:focus {
+        @apply drop-shadow-2xl bg-white;
+        outline: none;
+    }
+}
+
+.snippitListContainer {
+    @apply mt-5 w-full max-h-40 overflow-y-auto pr-3;
+}
+
 .single_snippit_container {
     @apply relative text-center p-3 my-2 rounded-full w-full;
     user-select: none;
