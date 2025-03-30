@@ -4,7 +4,7 @@ export default function Section({ stream, inputState, setActiveSection, activeSe
     return (
         <div className={styles.container}>
             <div className={styles.sub_container}>
-                {stream.map((ele, index) => {
+                {stream.length ? stream.map((ele, index) => {
                     return <SingleSection
                         title={inputState[ele].title}
                         key={ele}
@@ -16,7 +16,7 @@ export default function Section({ stream, inputState, setActiveSection, activeSe
                         deleteElement={deleteElement}
                     />
                 }
-                )}
+                ): <button className={styles.addButton} onClick={() => addElement('',true)}>Add Section</button>}
             </div>
         </div>
     )
