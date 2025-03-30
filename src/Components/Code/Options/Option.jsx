@@ -2,7 +2,7 @@ import Logo from './Logo';
 import styles from './Option.module.less'
 import Section from './Section/Section';
 import Snippits from './Snippits/Snippits';
-export default function Option({ stream, inputState, activeSection, setActiveSection, addElement, deleteElement}) {
+export default function Option({ stream, inputState, activeSection, setActiveSection, addElement, deleteElement }) {
     return (
         <div className={styles.container}>
             <Logo />
@@ -15,7 +15,7 @@ export default function Option({ stream, inputState, activeSection, setActiveSec
                     addElement={addElement}
                     deleteElement={deleteElement}
                 />
-                <Snippits />
+                <Snippits addElement={addElement} />
             </div>
         </div>
     );

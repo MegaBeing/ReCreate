@@ -1,11 +1,26 @@
-.container{
+.container {
     @apply flex flex-col justify-start items-center rounded-xl p-3 w-full shadow-xl;
     background-color: #6C757D;
-    h1{
+
+    h1 {
         @apply text-white text-xl;
     }
 }
-.single_snippit_container{
-    @apply text-center p-3 my-2 rounded-xl w-full;
+
+.single_snippit_container {
+    @apply relative text-center p-3 my-2 rounded-full w-full;
+    user-select: none;
+    cursor: pointer;
     background-color: #DEE2E6;
+
+    &:hover {
+        .backDrop {
+            opacity: 1;
+        }
+    }
+
+    .backDrop {
+        @apply absolute top-0 left-0 text-xl rounded-full backdrop-blur-xl w-full h-full transition-all duration-200 flex justify-center items-center;
+        opacity: 0;
+    }
 }

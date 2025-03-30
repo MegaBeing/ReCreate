@@ -23,23 +23,23 @@ function App() {
     setOutputState(tempOutputState);
   };
 
-  const addElement = (key, isAbove) => {
+  const addElement = (key, isAbove, code, output) => {
     const newKey = uuidv4();
-    if(key == ''){
+    if (key == '') {
       setStream(prev => ([...prev, newKey]))
-      setInputState(prev => ({ [newKey]: { title: "Section", code: "added new Section" }, ...prev }));
-      setOutputState(prev => ({ [newKey]: [{ text: "added new Section" }], ...prev }));
+      setInputState(prev => ({ [newKey]: { title: "Section", code: code ? code : "added new Section" }, ...prev }));
+      setOutputState(prev => ({ [newKey]: output ? output : [{ text: "added new Section" }], ...prev }));
     }
 
     // stream 
     let tempStream = [...stream];
     let keyIndex = stream.findIndex(ele => ele === key);
-    if (keyIndex === -1){
-      return ;
+    if (keyIndex === -1) {
+      return;
     }
     if (isAbove) tempStream.splice(0, 0, newKey);
     else tempStream.splice(keyIndex + 1, 0, newKey);
-  
+
     setStream(tempStream);
 
     // inputState
