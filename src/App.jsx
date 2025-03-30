@@ -4,22 +4,10 @@ import Pdf from "./Components/Pdf/Pdf";
 import { v4 as uuidv4 } from 'uuid';
 
 function App() {
-  const [stream, setStream] = useState([
-    'bae3cef7-9725-4488-a77c-1948506f2b06',
-    'd4e3f6a7-1234-5678-9101-112131415161',
-    'e7f8g9h0-2345-6789-1011-121314151617'
-  ]);
-  const [inputState, setInputState] = useState({
-    'bae3cef7-9725-4488-a77c-1948506f2b06': { title: 'Section 1', code: 'Code 1' },
-    'd4e3f6a7-1234-5678-9101-112131415161': { title: 'Section 2', code: 'Code 2' },
-    'e7f8g9h0-2345-6789-1011-121314151617': { title: 'Section 3', code: 'Code 3' }
-  });
+  const [stream, setStream] = useState([]);
+  const [inputState, setInputState] = useState({});
 
-  const [outputState, setOutputState] = useState({
-    'bae3cef7-9725-4488-a77c-1948506f2b06': [{ text: 'render 1' }],
-    'd4e3f6a7-1234-5678-9101-112131415161': [{ text: 'render 2' }],
-    'e7f8g9h0-2345-6789-1011-121314151617': [{ text: 'render 3' }]
-  });
+  const [outputState, setOutputState] = useState({});
 
   const deleteElement = (key) => {
     // stream 
@@ -37,11 +25,18 @@ function App() {
 
   const addElement = (key, isAbove) => {
     const newKey = uuidv4();
+    if(key == ''){
+      setStream(prev => ([...prev, newKey]))
+      setInputState(prev => ({ [newKey]: { title: "Section", code: "added new Section" }, ...prev }));
+      setOutputState(prev => ({ [newKey]: [{ text: "added new Section" }], ...prev }));
+    }
 
     // stream 
     let tempStream = [...stream];
     let keyIndex = stream.findIndex(ele => ele === key);
-    if (keyIndex === -1) return;
+    if (keyIndex === -1){
+      return ;
+    }
     if (isAbove) tempStream.splice(0, 0, newKey);
     else tempStream.splice(keyIndex + 1, 0, newKey);
   
